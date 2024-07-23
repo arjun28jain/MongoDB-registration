@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import {ToastContainer,toast} from "react-toastify";
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 const Register = () => {
+    const navigate = useNavigate();
     const [values,setValues]=useState({
         email:" ",
         password:" ",
@@ -18,9 +19,9 @@ const Register = () => {
             });
             if(data){
                 if(data.errors){
-
+                    console.log("Error occured in registration")
                 }else{
-
+                    navigate("/")
                 }
                  
             }
